@@ -32,14 +32,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Middleware to serve the React app
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Route for serving React on all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
-
 // Multer setup for handling image uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -100,3 +92,13 @@ mongoose
 
 // Serve uploaded images
 app.use('/uploads', express.static('uploads')); // Serve static files from 'uploads' directory
+
+
+// Middleware to serve the React app
+// app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static("../frontend/buil"));
+
+// Route for serving React on all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
