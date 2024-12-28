@@ -1,5 +1,5 @@
 // Load dotenv module
-require('dotenv').config(); // Ensure environment variables are loaded from the .env file
+// require('dotenv').config(); // Ensure environment variables are loaded from the .env file
 
 // Load express module
 const express = require('express');
